@@ -20,17 +20,36 @@ const calculate = function(){
   });
 }
 
+const reverse = function(){
+  const currencyOne = currencyEl_one.value;
+  const currencyTwo = currencyEl_two.value;
+  
+  fetch(`https://api.exchangerate-api.com/v4/latest/${currencyTwo}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log("this is running")
+    const rate = data.rates[currencyOne];
 
-currencyEl_one.addEventListener('change',calculate);
-amountEl_one.addEventListener('input',calculate);
-currencyEl_two.addEventListener('change',calculate);;
-amountEl_two.addEventListener('input',calculate);
+    amountEl_one.value = (amountEl_two.value * rate).toFixed(2);
+  });
+}
+
+
+
+
+
+currencyEl_one.addEventListener('change',calculate,reverse);
+amountEl_one.addEventListener('input',calculate,reverse);
+currencyEl_two.addEventListener('change',reverse,calculate);
+amountEl_two.addEventListener('input',reverse,calculate);
 
 swap.addEventListener('click', () => {
   const temp = currencyEl_one.value;
   currencyEl_one.value = currencyEl_two.value;
   currencyEl_two.value = temp;
   calculate();
+  reverse();
 });
 
-calculate();
+calculate(); 
+reverse();

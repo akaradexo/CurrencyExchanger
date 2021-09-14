@@ -51,6 +51,12 @@ body {
     
 
 }
+.header h1{
+  text-align: center;
+}
+.header h3{
+  text-align: center;
+}
 .hero-img{
     width: 35%;
     max-width: 100%;
@@ -68,7 +74,7 @@ body {
     overflow: hidden !important;
 }
 .currency{
-    margin: 4rem;
+    margin: 2rem;
     
     display: flex;
     flex-direction: column;
@@ -84,7 +90,7 @@ body {
   
   .currency input {
   padding: 5px 10px 5px 5px;
-
+    width: 100%;
     color: var(--clr-darker-grey);
     font-size: 2rem;
     text-align: right;
@@ -123,6 +129,26 @@ button:focus {
   .button-54 {
     padding: 0.25em 0.75em;
   }
+
+
+}
+@media (max-width: 768px) {
+  
+  .container{
+    flex-direction: column;
+}
+.hero-img{
+  margin:  0;
+
+}
+.currency{
+  margin: 0.8rem;
+  max-width: 70%;
+}
+.currency input {
+    font-size: 1rem;
+  }
+
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
